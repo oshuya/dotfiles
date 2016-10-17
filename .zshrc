@@ -36,8 +36,9 @@ SAVEHIST=1000000
 ## PROMPT="%{${fg[green]}%}[%m@%d]%{${reset_color}%} 
 ## $ "
 local p_cdir="%B%F{green}[%~]%f%b"$'\n'
-local p_info="%m@%n"
-PROMPT="%{${fg[black]}%}$p_cdir$p_info $ %{${reset_color}%}"
+local p_info="%{${fg[cyan]}%}%m@%n%{${reset_color}%}"
+# PROMPT="%{${fg[black]}%}$p_cdir$p_info $ %{${reset_color}%}"
+PROMPT="$p_cdir$p_info $ "
 
 # git
 autoload -Uz vcs_info
