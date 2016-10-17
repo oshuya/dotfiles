@@ -37,7 +37,7 @@ SAVEHIST=1000000
 ## $ "
 local p_cdir="%B%F{green}[%~]%f%b"$'\n'
 local p_info="%{${fg[cyan]}%}%m@%{${reset_color}%}%{${fg[white]}%}%B%n%b%{${reset_color}%}"
-PROMPT="$p_cdir$p_info %{${fg[cyan]}%}$ %{${reset_color}%}"
+PROMPT="$p_cdir$p_info %{${fg[cyan]}%}%B$%b %{${reset_color}%}"
 
 # git
 autoload -Uz vcs_info
@@ -85,7 +85,7 @@ alias eucaly='ssh consul@eucaly.sfc.keio.ac.jp'
 
 ## alias
 alias g='git'
-alias dev='cd ~/Desktop/dev'
+alias dev='~/Desktop/dev'
 alias goquic='GOMAXPROCS=8 ./server -n 8 -port 8080 -cert cert1.crt -key cert1.key -quic_only -addr \[::\] -root ./public/public/'
 alias ocaml="rlwrap ocaml"
 
