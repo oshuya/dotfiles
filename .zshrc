@@ -36,7 +36,7 @@ SAVEHIST=1000000
 ## PROMPT="%{${fg[green]}%}[%m@%d]%{${reset_color}%} 
 ## $ "
 local p_cdir="%B%F{green}[%~]%f%b"$'\n'
-local p_info="%{${fg[cyan]}%}%m@%n%{${reset_color}%}"
+local p_info="%{${fg[cyan]}%}%m@%{${reset_color}%}%{${fg[white]}%}%B%n%b%{${reset_color}%}"
 PROMPT="$p_cdir$p_info %{${fg[cyan]}%}$ %{${reset_color}%}"
 
 # git
