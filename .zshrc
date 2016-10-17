@@ -53,10 +53,10 @@ precmd () { vcs_info }
 RPROMPT=\$vcs_info_msg_0_
 
 ## color設定
-export LSCOLORS=exfxcxdxbxegedabagacad
-zstyle ':completion:*' list-colors di=34 ln=35 ex=31
+export LSCOLORS=gxfxcxdxbxegedabagacad
+zstyle ':completion:*' list-colors di=36 ln=35 ex=31
 zstyle ':completion:*:kill:*' list-colors \
-   '=(#b) #([0-9]#)*( *[a-z])*=34=31=33'
+   '=(#b) #([0-9]#)*( *[a-z])*=33=31=33'
 
    ## 一覧表示の形式設定
    zstyle ':completion:*' group-name ''

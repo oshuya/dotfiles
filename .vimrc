@@ -1,2 +1,2 @@
 :syntax on
-hi Comment ctermfg=Cyan=
+hi Comment ctermfg=Cyan
