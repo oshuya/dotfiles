@@ -51,6 +51,7 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=\$vcs_info_msg_0_
+alias g='git'
 
 ## color設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -75,19 +76,12 @@ export PATH=$PATH:$GOPATH/bin
 alias desk='cd ~/Desktop'
 alias Extensions="/Users/Shuya/Library/Application\ Support/Google/Chrome/Default/Extensions"
 alias pdf="LANG=C LC_ALL=C sed -i '' s'|/Registry (Adobe) /Ordering (Japan1) /Supplement [0-9]|/Registry(Adobe) /Ordering(Identity) /Supplement 0|g'"
-
-## ssh
-alias cns='ssh -4 s14217so@ccz01.sfc.keio.ac.jp'
-alias wide='ssh shuya@cpu.sfc.wide.ad.jp'
-alias sakura='ssh -i ~/.ssh/id_rsa  shuya@160.16.125.226 -p 6666'
-alias webedit='cocot -t UTF-8 -p EUC-JP ssh -4 s14217so@webedit.sfc.keio.ac.jp'
-alias eucaly='ssh consul@eucaly.sfc.keio.ac.jp'
-
-## alias
-alias g='git'
 alias dev='~/Desktop/dev'
 alias goquic='GOMAXPROCS=8 ./server -n 8 -port 8080 -cert cert1.crt -key cert1.key -quic_only -addr \[::\] -root ./public/public/'
 alias ocaml="rlwrap ocaml"
 
+## ssh
+alias webedit='cocot -t UTF-8 -p EUC-JP ssh -4 s14217so@webedit.sfc.keio.ac.jp'
+
 # OPAM configuration
-. /Users/Shuya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+/Users/Shuya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
