@@ -113,7 +113,8 @@ function activate(context) {
         provideCompletionItems(document, position, token) {
             return __awaiter(this, void 0, void 0, function* () {
                 let line = document.getText(new vscode.Range(new vscode.Position(position.line, 0), position));
-                let prefix = /[A-Za-z_][A-Za-z_'0-9]*(?:\.[A-Za-z_][A-Za-z_'0-9]*)*\.?$/.exec(line)[0];
+                let match = /(?:[~?]?[A-Za-z_0-9'`.]+)$/.exec(line);
+                let prefix = match && match[0] || '';
                 yield session.syncBuffer(document.fileName, document.getText(), token);
                 if (token.isCancellationRequested)
                     return null;
@@ -142,11 +143,14 @@ function activate(context) {
                     completionItem.kind = toVsKind(kind);
                     completionItem.detail = desc;
                     completionItem.documentation = info;
+                    if (prefix.startsWith('#') && name.startsWith(prefix)) {
+                        completionItem.textEdit = new vscode.TextEdit(new vscode.Range(new vscode.Position(position.line, position.character - prefix.length), position), name);
+                    }
                     return completionItem;
                 }));
             });
         }
-    }, '.'));
+    }, '.', '#'));
     context.subscriptions.push(vscode.languages.registerDefinitionProvider(ocamlLang, {
         provideDefinition(document, position, token) {
             return __awaiter(this, void 0, void 0, function* () {
@@ -403,20 +407,25 @@ function activate(context) {
                     let col1 = JSON.parse(match[3]);
                     let col2 = JSON.parse(match[4]);
                     if (Path.basename(file) === Path.basename(document.fileName)) {
-                        diagnostics.push(new vscode.Diagnostic(toVsRange({ line: line, col: col1 }, { line: line, col: col2 }), message, fromType(type.toLowerCase())));
+                        let diag = new vscode.Diagnostic(toVsRange({ line: line, col: col1 }, { line: line, col: col2 }), message, fromType(type.toLowerCase()));
+                        diag.source = 'merlin';
+                        diagnostics.push(diag);
                     }
                     else {
                     }
                 }
                 return;
             }
-            diagnostics.push(new vscode.Diagnostic(toVsRange(start, end), message, fromType(type.toLowerCase())));
+            let diag = new vscode.Diagnostic(toVsRange(start, end), message, fromType(type.toLowerCase()));
+            diag.source = 'merlin';
+            diagnostics.push(diag);
         });
         return diagnostics;
     });
     let LINTER_DEBOUNCE_TIMER = Symbol();
     let LINTER_TOKEN_SOURCE = Symbol();
-    let diagnosticCollection = vscode.languages.createDiagnosticCollection('ocaml');
+    let LINTER_CLEAR_LISTENER = Symbol();
+    let diagnosticCollection = vscode.languages.createDiagnosticCollection('merlin');
     let lintDocument = (document) => {
         if (document.languageId !== 'ocaml')
             return;
@@ -430,7 +439,15 @@ function activate(context) {
             diagnosticCollection.set(document.uri, diagnostics);
         }), configuration.get('lintDelay'));
     };
+    vscode.workspace.onDidSaveTextDocument((document) => __awaiter(this, void 0, void 0, function* () {
+        if (!configuration.get('lintOnSave'))
+            return;
+        let diagnostics = yield provideLinter(document, new vscode.CancellationTokenSource().token);
+        diagnosticCollection.set(document.uri, diagnostics);
+    }));
     vscode.workspace.onDidChangeTextDocument(({ document }) => {
+        if (!configuration.get('lintOnChange'))
+            return;
         if (document.languageId === 'ocaml') {
             lintDocument(document);
             return;
@@ -446,6 +463,11 @@ function activate(context) {
         let path = Path.basename(document.fileName);
         if (path === '.merlin') {
             relintOpenedDocuments();
+        }
+    });
+    vscode.workspace.onDidCloseTextDocument((document) => {
+        if (document.languageId === 'ocaml') {
+            diagnosticCollection.delete(document.uri);
         }
     });
 }

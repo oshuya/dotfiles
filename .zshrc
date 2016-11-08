@@ -58,9 +58,9 @@ zstyle ':completion:*' list-colors di=36 ln=35 ex=31
 zstyle ':completion:*:kill:*' list-colors \
    '=(#b) #([0-9]#)*( *[a-z])*=33=31=33'
 
-   ## 一覧表示の形式設定
-   zstyle ':completion:*' group-name ''
-   zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+## 一覧表示の形式設定
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 alias ls="ls -GF"
 
 ## rbenv
