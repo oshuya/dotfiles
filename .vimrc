@@ -16,6 +16,8 @@ set ignorecase
 set smartcase
 set hidden
 set whichwrap+=h,l,<,>,[,],b,s
+set mouse=a
+set ttymouse=xterm2
 
 "ocaml
 set rtp^="/Users/Shuya/.opam/system/share/ocp-indent/vim"
