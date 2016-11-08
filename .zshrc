@@ -81,7 +81,7 @@ alias goquic='GOMAXPROCS=8 ./server -n 8 -port 8080 -cert cert1.crt -key cert1.k
 alias ocaml="rlwrap ocaml"
 
 ## ssh
-alias webedit='cocot -t UTF-8 -p EUC-JP ssh -4 s14217so@webedit.sfc.keio.ac.jp'
+alias cocot='cocot -t UTF-8 -p EUC-JP'
 
 # OPAM configuration
 /Users/Shuya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
