@@ -63,6 +63,7 @@ zstyle ':completion:*:kill:*' list-colors \
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 alias ls="ls -GF"
+alias l="ls -CF"
 
 ## rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
