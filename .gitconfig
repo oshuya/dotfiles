@@ -3,5 +3,10 @@
 	email = shuya@sfc.wide.ad.jp
 [color]
 	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	grep = auto
 [core]
-	excludesfile = /Users/Shuya/.gitignore_global
+	excludesfile = /Users/Shuya/.gitignore
+	editor = nano
