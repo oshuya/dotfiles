@@ -8,5 +8,9 @@
 	branch = auto
 	grep = auto
 [core]
-	excludesfile = /Users/Shuya/.gitignore
-	editor = nano
+	excludesfile = /Users/Shuya/.gitignore_global
+	editor = nanoi
+[paper]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
