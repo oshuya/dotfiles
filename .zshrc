@@ -77,7 +77,6 @@ export PATH=$PATH:$GOPATH/bin
 alias desk='cd ~/Desktop'
 alias Extensions="/Users/Shuya/Library/Application\ Support/Google/Chrome/Default/Extensions"
 alias pdf="LANG=C LC_ALL=C sed -i '' s'|/Registry (Adobe) /Ordering (Japan1) /Supplement [0-9]|/Registry(Adobe) /Ordering(Identity) /Supplement 0|g'"
-alias dev='~/Desktop/dev'
 alias goquic='GOMAXPROCS=8 ./server -n 8 -port 8080 -cert cert1.crt -key cert1.key -quic_only -addr \[::\] -root ./public/public/'
 alias ocaml="rlwrap ocaml"
 
