@@ -52,6 +52,7 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=\$vcs_info_msg_0_
 alias g='git'
+function git(){hub "$@"}
 
 ## color設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
