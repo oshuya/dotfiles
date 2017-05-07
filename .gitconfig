@@ -1,6 +1,7 @@
 [user]
 	name = shuya
 	email = shuya@sfc.wide.ad.jp
+	signingkey = E81ED6FB2D817621
 [color]
 	ui = auto
 	diff = auto
