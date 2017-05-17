@@ -66,9 +66,9 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 alias ls="ls -GF"
 alias l="ls -CF"
 
-## rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+### rbenv
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
 
 ## go
 export GOPATH=$HOME/.go
@@ -81,6 +81,7 @@ alias pdf="LANG=C LC_ALL=C sed -i '' s'|/Registry (Adobe) /Ordering (Japan1) /Su
 alias goquic='GOMAXPROCS=8 ./server -n 8 -port 8080 -cert cert1.crt -key cert1.key -quic_only -addr \[::\] -root ./public/public/'
 alias ocaml="rlwrap ocaml"
 alias rm="gomi -s"
+alias dev="cd ~/dev"
 
 ## ssh
 alias cocot='cocot -t UTF-8 -p EUC-JP'
