@@ -1,6 +1,6 @@
 [user]
 	name = shuya
-	email = shuya@sfc.wide.ad.jp
+	email = shuya@sfc.wide.ad.jp 
 [color]
 	ui = auto
 	diff = auto
@@ -9,7 +9,7 @@
 	grep = auto
 [core]
 	excludesfile = /Users/osakis/.gitignore_global
-	editor = nanoi
+	editor = /usr/bin/vim
 [paper]
 	log = diff-highlight | less
 	show = diff-highlight | less
