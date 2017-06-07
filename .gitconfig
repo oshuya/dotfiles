@@ -9,7 +9,7 @@
 	branch = auto
 	grep = auto
 [core]
-	excludesfile = /Users/osakis/.gitignore_global
+	excludesfile = $HOME/.gitignore_global
 	editor = /usr/bin/vim
 [paper]
 	log = diff-highlight | less

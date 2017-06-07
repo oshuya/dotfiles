@@ -1,6 +1,5 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
-export EDITOR=/usr/local/bin/vim
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -69,15 +68,15 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 alias ls="ls -GF"
 alias l="ls -CF"
 
-### rbenv
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#eval "$(rbenv init -)"
+## rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 ## go
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
-# python
+## python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
@@ -93,6 +92,6 @@ alias dev="cd ~/dev"
 alias cocot='cocot -t UTF-8 -p EUC-JP'
 
 # OPAM configuration
-/Users/Shuya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+$HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
