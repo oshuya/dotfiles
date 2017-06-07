@@ -1,5 +1,6 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
+export EDITOR=/usr/local/bin/vim
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -44,6 +45,8 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
+local git==git
+branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
@@ -74,6 +77,10 @@ alias l="ls -CF"
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 ## alias
 alias desk='cd ~/Desktop'
 alias Extensions="/Users/Shuya/Library/Application\ Support/Google/Chrome/Default/Extensions"
@@ -87,3 +94,5 @@ alias cocot='cocot -t UTF-8 -p EUC-JP'
 
 # OPAM configuration
 /Users/Shuya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
