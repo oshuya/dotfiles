@@ -1,5 +1,6 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
+bindkey -e
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -40,12 +41,14 @@ local p_info="%m%{${fg[cyan]}%}@%{${reset_color}%}%{${fg[white]}%}%B%n%b%{${rese
 PROMPT="$p_cdir$p_info %{${fg[cyan]}%}%B$%b %{${reset_color}%}"
 
 # git
+function git(){hub "$@"}
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 local git==git
 branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
+zstyle ':vcs_info:git:*:-all-' command /usr/local/bin/git
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
@@ -54,7 +57,6 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=\$vcs_info_msg_0_
 alias g='git'
-function git(){hub "$@"}
 
 ## color設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
