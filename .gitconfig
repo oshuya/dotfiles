@@ -9,7 +9,7 @@
 	grep = auto
 [core]
 	excludesfile = /Users/Shuya/.gitignore_global
-	editor = nanoi
+	editor = vim 
 [paper]
 	log = diff-highlight | less
 	show = diff-highlight | less

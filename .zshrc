@@ -1,5 +1,6 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
+export PATH=/usr/local/bin:$PATH
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -80,10 +81,18 @@ alias Extensions="/Users/Shuya/Library/Application\ Support/Google/Chrome/Defaul
 alias pdf="LANG=C LC_ALL=C sed -i '' s'|/Registry (Adobe) /Ordering (Japan1) /Supplement [0-9]|/Registry(Adobe) /Ordering(Identity) /Supplement 0|g'"
 alias goquic='GOMAXPROCS=8 ./server -n 8 -port 8080 -cert cert1.crt -key cert1.key -quic_only -addr \[::\] -root ./public/public/'
 alias ocaml="rlwrap ocaml"
-alias rm="gomi -s"
+alias rm="rm -r"
 
 ## ssh
 alias cocot='cocot -t UTF-8 -p EUC-JP'
 
 # OPAM configuration
 /Users/Shuya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Open SSL
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
+export CPATH=/usr/local/opt/openssl/include:$CPATH
+export LDFLAGS=-L/usr/local/opt/openssl/lib
+export CPPFLAGS=-I/usr/local/opt/openssl/include
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH
