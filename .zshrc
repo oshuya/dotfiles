@@ -96,3 +96,4 @@ alias cocot='cocot -t UTF-8 -p EUC-JP'
 $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+fpath=(/usr/local/share/zsh-completions $fpath)
