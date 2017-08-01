@@ -25,6 +25,9 @@ zstyle ':completion:*:descriptions' format '%F{YELLOW}completing %B%d%b'$DEFAULT
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'$DEFAULT
 
+# zsh-comple
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # マッチ種別を別々に表示
 zstyle ':completion:*' group-name ''
 
